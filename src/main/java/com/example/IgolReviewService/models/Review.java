@@ -14,12 +14,13 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "bookingreview")
-public class Review extends BaseModel{
+@Table(name = "booking_review")
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Review extends BaseModel {
 
     @Column(nullable = false)
-    private String content;
+    protected String content;
 
-    private Double rating;
+    protected Double rating;
 
 }
