@@ -13,28 +13,13 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EntityListeners(AuditingEntityListener.class)
 @Entity
 @Table(name = "bookingreview")
-public class Review {
-
-    @Id // this annotation makes the id property a primary key for the table
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto-increment
-    private Long id;
+public class Review extends BaseModel{
 
     @Column(nullable = false)
     private String content;
 
     private Double rating;
-
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP) // Format of date object to be stored
-    @CreatedDate // This annotation tells spring only handle it object creation
-    private Date createdAt;
-
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP) // Format of date object to be stored
-    @LastModifiedDate // This annotation tells spring only handle it for object update
-    private Date updatedAt;
 
 }
