@@ -2,11 +2,6 @@ package com.example.IgolReviewService.models;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import java.util.Date;
 
 @Getter
 @Setter
@@ -22,5 +17,9 @@ public class Review extends BaseModel {
     protected String content;
 
     protected Double rating;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(nullable = false)
+    private Booking booking; // 1 : 1 relationship b/w Booking and Review
 
 }

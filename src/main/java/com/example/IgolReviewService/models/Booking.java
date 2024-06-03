@@ -1,5 +1,6 @@
 package com.example.IgolReviewService.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,9 +13,6 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Booking extends BaseModel {
-
-    @OneToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
-    private Review review; // 1 : 1 relationship b/w Booking and Review
 
     @Enumerated(value = EnumType.STRING)
     private BookingStatus bookingStatus;
